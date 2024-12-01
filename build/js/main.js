@@ -116,7 +116,7 @@ $(function () {
         });
 
         // Unveil beim Wechsel eines Tabs durchführen
-        $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+        $('a[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
                 $(this.getAttribute('href')).find('img').unveil();
             }
         );
@@ -164,12 +164,12 @@ $(function () {
         );
 
 
-        $oHeader.find('.menu-dropdowns button[data-href]').click(function (e) {
+        $oHeader.find('.menu-dropdowns button[data-bs-href]').click(function (e) {
                 var $this = $(this);
 
                 if ($(window).width() <= 767) {
                     e.stopPropagation();
-                    document.location.href = $this.attr('data-href');
+                    document.location.href = $this.attr('data-bs-href');
                 }
             }
         );
@@ -295,7 +295,7 @@ $(function () {
 
                 oMoreLinkAElem.className = 'dropdown-toggle nav-link';
                 oMoreLinkAElem.innerHTML = oWave.i18n.NAV_MORE + ' <i class="fa fa-angle-down"></i>';
-                oMoreLinkAElem.setAttribute('data-toggle', 'dropdown');
+                oMoreLinkAElem.setAttribute('data-bs-toggle', 'dropdown');
 
                 oMoreLinkUlElem.className = 'dropdown-menu';
                 oMoreLinkUlElem.setAttribute('role', 'menu');
@@ -378,7 +378,7 @@ $(function () {
                 e.preventDefault();
                 var $this = $(this);
                 $this.closest('.selectbox').removeClass('open');
-                $this.parent().parent().prev().val($this.attr('data-selection-id'));
+                $this.parent().parent().prev().val($this.attr('data-bs-selection-id'));
                 $this.parent().parent().prev().siblings('button').find('span').first().text($this.text());
             }
         );

@@ -42,7 +42,7 @@ Wave.initDetailsEvents = function () {
                 e.preventDefault();
                 var $this = $(this);
                 $this.closest('.selectbox').removeClass('show');
-                $this.parent().parent().prev().val($this.attr('data-selection-id'));
+                $this.parent().parent().prev().val($this.attr('data-bs-selection-id'));
                 $this.parent().parent().prev().siblings('button').find('span').first().text($this.text());
             }
         );
@@ -59,7 +59,7 @@ Wave.initDetailsEvents = function () {
                 $oParent.nextAll().find('i').removeClass('fas').addClass('far');
                 $this.find('i').removeClass('far').addClass('fas');
 
-                $oRatingForm.find('#recommListRating, #productRating').val($oParent.attr('data-rate-value'));
+                $oRatingForm.find('#recommListRating, #productRating').val($oParent.attr('data-bs-rate-value'));
             }
         );
     }
@@ -139,7 +139,7 @@ Wave.setPhotoSwipe = function () {
         var options = {
             index: index, // start at first slide
             getThumbBoundsFn: function (index) {
-                //var thumbnail = $( '.dd-zoom-toggle[data-index=' + index + ']' )[ 0 ];
+                //var thumbnail = $( '.dd-zoom-toggle[data-bs-index=' + index + ']' )[ 0 ];
 
                 var pageYScroll = window.pageYOffset || document.documentElement.scrollTop;
                 var rect = elm.getBoundingClientRect();

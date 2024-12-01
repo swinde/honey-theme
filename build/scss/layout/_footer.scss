@@ -77,8 +77,13 @@
       .fa-facebook-f {
         color: $ox-footer-color-facebook;
       }
-      .fa-google-plus-square {
-        color: $ox-footer-color-google-plus;
+
+      .fa-instagram {
+        color: transparent;
+        background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+        background: -webkit-radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+        background-clip: text;
+        -webkit-background-clip: text;
       }
       .fa-twitter {
         color: $ox-footer-color-twitter;
@@ -94,9 +99,7 @@
         .fa-facebook-f {
           color: darken($ox-footer-color-facebook, 15%);
         }
-        .fa-google-plus-square {
-          color: darken($ox-footer-color-google-plus, 15%);
-        }
+
         .fa-twitter {
           color: darken($ox-footer-color-twitter, 15%);
         }

@@ -33,7 +33,7 @@ $( document ).ready( function()
                     $oParent.nextAll().find( 'i' ).removeClass( 'fas' ).addClass( 'far' );
                     $this.find( 'i' ).removeClass( 'far' ).addClass( 'fas' );
 
-                    $oRatingForm.find( '#recommListRating, #productRating' ).val( $oParent.attr( 'data-rate-value' ) );
+                    $oRatingForm.find( '#recommListRating, #productRating' ).val( $oParent.attr( 'data-bs-rate-value' ) );
                 }
             );
         }
