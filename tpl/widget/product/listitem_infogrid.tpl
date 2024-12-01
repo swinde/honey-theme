@@ -57,16 +57,16 @@
         </div>
 
         <div class="row">
-            <div class="col col-lg-5">
+            <div class="col-12 col-lg-5">
                 [{block name="widget_product_listitem_infogrid_gridpicture"}]
                     <div class="picture text-center">
                         <a href="[{$_productLink}]" title="[{$product->oxarticles__oxtitle->value}] [{$product->oxarticles__oxvarselect->value}]">
-                            <img src="[{$oViewConf->getImageUrl('spinner.gif')}]" data-src="[{$product->getThumbnailUrl()}]" alt="[{$product->oxarticles__oxtitle->value}] [{$product->oxarticles__oxvarselect->value}]" class="img-fluid">
+                            <img src="[{$oViewConf->getImageUrl('spinner.gif')}]" data-bs-src="[{$product->getThumbnailUrl()}]" alt="[{$product->oxarticles__oxtitle->value}] [{$product->oxarticles__oxvarselect->value}]" class="img-fluid">
                         </a>
                     </div>
                 [{/block}]
             </div>
-            <div class="col col-lg-7">
+            <div class="col-12 col-lg-7">
                 <div class="listDetails">
                     [{block name="widget_product_listitem_infogrid_titlebox"}]
                         <div class="title">
@@ -158,7 +158,7 @@
                             <div class="btn-group">
                                 [{if $blShowToBasket}]
                                     [{oxhasrights ident="TOBASKET"}]
-                                        <button type="submit" aria-label="[{oxmultilang ident="TO_CART"}]" class="btn btn-outline-dark hasTooltip" data-placement="bottom" title="[{oxmultilang ident="TO_CART"}]" data-container="body">
+                                        <button type="submit" aria-label="[{oxmultilang ident="TO_CART"}]" class="btn btn-outline-dark hasTooltip" data-bs-placement="bottom" title="[{oxmultilang ident="TO_CART"}]" data-bs-container="body">
                                             <i class="fa fa-shopping-cart"></i>
                                         </button>
                                     [{/oxhasrights}]

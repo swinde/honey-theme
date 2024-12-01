@@ -32,7 +32,8 @@
     "popper.js": "^1.12.6",
     "stylelint": "^8.0.0",
     "stylelint-scss": "^1.4.1",
-    "uglify": "^0.1.5"
+    "uglify": "^0.1.5",
+    "grunt-combine-mq": "1."
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

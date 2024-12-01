@@ -28,7 +28,7 @@
     [{/if}]
 
     [{if $place != "bottom"}]
-    <div class="col text-right">
+    <div class="col-12 text-right">
         [{include file="widget/locator/attributes.tpl"}]
     </div>
     [{/if}]

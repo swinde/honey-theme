@@ -60,11 +60,11 @@
         </div>
 
         <div class="row listDetails">
-            <div class="col col-md-2">
+            <div class="col-12 col-md-2">
                 <div class="picture">
                     [{block name="widget_product_listitem_line_picturebox"}]
                         <a id="[{$testid}]" href="[{$_productLink}]" title="[{$product->oxarticles__oxtitle->value}] [{$product->oxarticles__oxvarselect->value}]">
-                            <img src="[{$oViewConf->getImageUrl('spinner.gif')}]" data-src="[{$product->getThumbnailUrl()}]" alt="[{$product->oxarticles__oxtitle->value}] [{$product->oxarticles__oxvarselect->value}]" class="img-fluid">
+                            <img src="[{$oViewConf->getImageUrl('spinner.gif')}]" data-bs-src="[{$product->getThumbnailUrl()}]" alt="[{$product->oxarticles__oxtitle->value}] [{$product->oxarticles__oxvarselect->value}]" class="img-fluid">
                         </a>
                     [{/block}]
                 </div>
@@ -187,7 +187,7 @@
                                     <div class="input-group">
                                         <input id="amountToBasket_[{$testid}]" type="text" name="am" value="1" size="3" autocomplete="off" class="form-control amount">
                                         <span class="input-group-append">
-                                            <button id="toBasket_[{$testid}]" type="submit" aria-label="[{oxmultilang ident="TO_CART"}]" class="btn btn-primary hasTooltip" title="[{oxmultilang ident="TO_CART"}]" data-container="body">
+                                            <button id="toBasket_[{$testid}]" type="submit" aria-label="[{oxmultilang ident="TO_CART"}]" class="btn btn-primary hasTooltip" title="[{oxmultilang ident="TO_CART"}]" data-bs-container="body">
                                                 <i class="fa fa-shopping-cart"></i>
                                             </button>
                                             [{if $removeFunction && (($owishid && ($owishid==$oxcmp_user->oxuser__oxid->value)) || (($wishid==$oxcmp_user->oxuser__oxid->value)) || $recommid)}]

@@ -46,8 +46,8 @@
                                                                 type="submit"
                                                                 class="btn btn-danger btn-block hasTooltip"
                                                                 title="[{oxmultilang ident="DD_DELETE_REVIEW_AND_RATING"}]"
-                                                                data-toggle="modal"
-                                                                data-target="#delete_review_[{$smarty.foreach.ReviewsCounter.iteration}]"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#delete_review_[{$smarty.foreach.ReviewsCounter.iteration}]"
                                                         >
                                                             <i class="fa fa-trash"></i>
                                                         </button>

@@ -72,7 +72,7 @@
                     [{/if}]
 
                     <div class="picture details-picture">
-                        <a class="details-picture-link" href="[{$oPictureProduct->getMasterZoomPictureUrl(1)}]" id="zoom1"[{if $aPictureInfo}] data-width="[{$aPictureInfo.0}]" data-height="[{$aPictureInfo.1}]"[{/if}]>
+                        <a class="details-picture-link" href="[{$oPictureProduct->getMasterZoomPictureUrl(1)}]" id="zoom1"[{if $aPictureInfo}] data-bs-width="[{$aPictureInfo.0}]" data-bs-height="[{$aPictureInfo.1}]"[{/if}]>
                             <img src="[{$oView->getActPicture()}]" alt="[{$oPictureProduct->oxarticles__oxtitle->value|strip_tags}] [{$oPictureProduct->oxarticles__oxvarselect->value|strip_tags}]" itemprop="image" class="img-fluid">
                         </a>
                     </div>
@@ -251,7 +251,7 @@
                                     <div class="input-group tobasket-input-group">
                                         <input id="amountToBasket" type="text" name="am" value="1" autocomplete="off" class="form-control">
                                         <div class="input-group-append">
-                                            <button id="toBasket" type="submit" [{if !$blCanBuy}]disabled="disabled"[{/if}] class="btn btn-primary submitButton" data-disabledtext="[{oxmultilang ident="TO_CART_NOVARIANT"}]"><i class="fa fa-shopping-cart"></i> [{oxmultilang ident="TO_CART"}]</button>
+                                            <button id="toBasket" type="submit" [{if !$blCanBuy}]disabled="disabled"[{/if}] class="btn btn-primary submitButton" data-bs-disabledtext="[{oxmultilang ident="TO_CART_NOVARIANT"}]"><i class="fa fa-shopping-cart"></i> [{oxmultilang ident="TO_CART"}]</button>
                                         </div>
                                     </div>
                                 [{/if}]

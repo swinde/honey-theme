@@ -4,7 +4,7 @@
     [{oxscript include="js/widgets/oxcookienote.min.js"}]
     <div id="cookieNote">
         <div class="alert alert-info" style="margin: 0;">
-            <button type="button" class="close" data-dismiss="alert">
+            <button type="button" class="close" data-bs-dismiss="alert">
                 <span aria-hidden="true">&times;</span><span class="sr-only">[{oxmultilang ident='CLOSE'}]</span>
             </button>
             [{oxmultilang ident='COOKIE_NOTE'}]

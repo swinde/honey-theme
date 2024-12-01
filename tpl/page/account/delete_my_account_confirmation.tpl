@@ -13,7 +13,7 @@
                     [{block name="account_delete_my_account_confirmation_header_message"}]
                         <span class="h4 modal-title">[{oxmultilang ident="DD_DELETE_MY_ACCOUNT_CONFIRMATION_QUESTION"}]</span>
                     [{/block}]
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
@@ -35,7 +35,7 @@
                                         <button type="submit" class="btn btn-danger">
                                             [{oxmultilang ident="DD_DELETE_MY_ACCOUNT"}]
                                         </button>
-                                        <button type="button" class="btn btn-outline-dark" data-dismiss="modal">
+                                        <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">
                                             [{oxmultilang ident="DD_DELETE_MY_ACCOUNT_CANCEL"}]
                                         </button>
                                     [{/block}]

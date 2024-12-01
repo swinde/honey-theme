@@ -7,7 +7,7 @@
             <div class="card-header toggle-accordion">
                 <div class="h4 card-title">
                     [{if $oxcmp_user}]
-                        <i class="fas fa-pencil-alt"></i> <a id="writeNewReview" data-toggle="collapse" data-parent="#review_form_accordion" href="#review_form">[{oxmultilang ident="WRITE_REVIEW"}]</a>
+                        <i class="fas fa-pencil-alt"></i> <a id="writeNewReview" data-bs-toggle="collapse" data-bs-parent="#review_form_accordion" href="#review_form">[{oxmultilang ident="WRITE_REVIEW"}]</a>
                     [{else}]
                         <i class="fa fa-user"></i> <a id="reviewsLogin" rel="nofollow" href="[{oxgetseourl ident=$oViewConf->getSelfLink()|cat:"cl=account" params="anid=`$oDetailsProduct->oxarticles__oxnid->value`"|cat:"&amp;sourcecl=details"|cat:$oViewConf->getNavUrlParams()}]">[{oxmultilang ident="MESSAGE_LOGIN_TO_WRITE_REVIEW"}]</a>
                     [{/if}]
@@ -46,7 +46,7 @@
                                         [{if $oView->canRate()}]
                                             <ul id="reviewRating" class="rating list-inline">
                                                 [{section name=star start=1 loop=6}]
-                                                    <li class="rating-star s[{$smarty.section.star.index}]" data-rate-value="[{$smarty.section.star.index}]">
+                                                    <li class="rating-star s[{$smarty.section.star.index}]" data-bs-rate-value="[{$smarty.section.star.index}]">
                                                         <a class="ox-write-review ox-rateindex-[{$smarty.section.star.index}] text-warning" title="[{$smarty.section.star.index}] [{if $smarty.section.star.index==1}][{oxmultilang ident="STAR"}][{else}][{oxmultilang ident="STARS"}][{/if}]">
                                                             <i class="far fa-star"></i>
                                                         </a>

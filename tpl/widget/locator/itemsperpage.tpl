@@ -3,7 +3,7 @@
 
 [{if $oViewConf->getNrOfCatArticles()|@count > 1}]
     <div class="btn-group">
-        <button type="button" class="btn btn-outline-dark btn-sm dropdown-toggle" data-toggle="dropdown">
+        <button type="button" class="btn btn-outline-dark btn-sm dropdown-toggle" data-bs-toggle="dropdown">
             <strong>[{oxmultilang ident="PRODUCTS_PER_PAGE"}]</strong>
             [{if $oViewConf->getArtPerPageCount()}]
                 [{$oViewConf->getArtPerPageCount()}]

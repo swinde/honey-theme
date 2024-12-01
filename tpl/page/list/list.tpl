@@ -13,7 +13,7 @@
                 [{/if}]
             </h3>
             <div class="featured icon">
-                <img src="[{$oViewConf->getImageUrl('spinner.gif')}]" data-src="[{$actCategory->getIconUrl()}]" alt="[{$actCategory->getTitle()}]">
+                <img src="[{$oViewConf->getImageUrl('spinner.gif')}]" data-bs-src="[{$actCategory->getIconUrl()}]" alt="[{$actCategory->getTitle()}]">
             </div>
         </div>
         [{/if}]
@@ -23,7 +23,7 @@
 [{capture append="oxidBlock_content"}]
     [{block name="page_list_listhead"}]
         [{if $actCategory->oxcategories__oxthumb->value && $actCategory->getThumbUrl()}]
-            <img src="[{$oViewConf->getImageUrl('spinner.gif')}]" data-src="[{$actCategory->getThumbUrl()}]" alt="[{$actCategory->oxcategories__oxtitle->value}]" class="categoryPicture img-fluid img-thumbnail">
+            <img src="[{$oViewConf->getImageUrl('spinner.gif')}]" data-bs-src="[{$actCategory->getThumbUrl()}]" alt="[{$actCategory->oxcategories__oxtitle->value}]" class="categoryPicture img-fluid img-thumbnail">
         [{/if}]
 
         <div class="page-header">
@@ -81,7 +81,7 @@
                                         <div class="card-body">
                                             [{if $iconUrl}]
                                                 <a href="[{$category->getLink()}]">
-                                                    <img src="[{$oViewConf->getImageUrl('spinner.gif')}]" data-src="[{$category->getIconUrl()}]" alt="[{$category->oxcategories__oxtitle->value}]" class="img-fluid subcat-icon">
+                                                    <img src="[{$oViewConf->getImageUrl('spinner.gif')}]" data-bs-src="[{$category->getIconUrl()}]" alt="[{$category->oxcategories__oxtitle->value}]" class="img-fluid subcat-icon">
                                                 </a>
                                             [{else}]
                                                 <a href="[{$category->getLink()}]" class="btn btn-block btn-info">[{oxmultilang ident="DD_LIST_SHOW_MORE" suffix="ELLIPSIS"}]</a>

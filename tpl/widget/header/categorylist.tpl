@@ -12,7 +12,7 @@
             [{block name="dd_widget_header_categorylist_navbar"}]
                 [{block name="dd_widget_header_categorylist_navbar_header"}]
                     <div class="navbar-header justify-content-start">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-main-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-main-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <span class="d-lg-none">[{oxmultilang ident="DD_ROLES_BEMAIN_UIROOTHEADER"}]</span>
@@ -36,7 +36,7 @@
                                     [{/foreach}]
 
                                     <li class="nav-item[{if $homeSelected == 'false' && $ocat->expanded}] active[{/if}][{if $ocat->getSubCats()}] dropdown[{/if}]">
-                                        <a class="nav-link" href="[{$ocat->getLink()}]"[{if $ocat->getSubCats()}] class="dropdown-toggle" data-toggle="dropdown"[{/if}]>
+                                        <a class="nav-link" href="[{$ocat->getLink()}]"[{if $ocat->getSubCats()}] class="dropdown-toggle" data-bs-toggle="dropdown"[{/if}]>
                                             [{$ocat->oxcategories__oxtitle->value}][{if $ocat->getSubCats()}] <i class="fa fa-angle-down"></i>[{/if}]
                                         </a>
 

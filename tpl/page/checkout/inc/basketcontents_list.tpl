@@ -14,7 +14,7 @@
                         [{block name="checkout_basketcontents_basketitem_image"}]
                             [{* product image *}]
                             [{if $editable}]<a href="[{$basketitem->getLink()}]">[{/if}]
-                            <img src="[{$oViewConf->getImageUrl('spinner.gif')}]" data-src="[{$basketitem->getIconUrl()}]" alt="[{$basketitem->getTitle()|strip_tags}]">
+                            <img src="[{$oViewConf->getImageUrl('spinner.gif')}]" data-bs-src="[{$basketitem->getIconUrl()}]" alt="[{$basketitem->getTitle()|strip_tags}]">
                             [{if $editable}]</a>[{/if}]
                         [{/block}]
                     </div>
@@ -112,14 +112,14 @@
                                         <div class="wrapping">
                                             [{if !$basketitem->getWrappingId()}]
                                                 [{if $editable}]
-                                                    <a href="#" class="btn btn-outline-dark btn-sm" title="[{oxmultilang ident="ADD"}]" data-toggle="modal" data-target="#giftoptions">[{oxmultilang ident="WRAPPING"}] [{oxmultilang ident="ADD"}]</a>
+                                                    <a href="#" class="btn btn-outline-dark btn-sm" title="[{oxmultilang ident="ADD"}]" data-bs-toggle="modal" data-bs-target="#giftoptions">[{oxmultilang ident="WRAPPING"}] [{oxmultilang ident="ADD"}]</a>
                                                 [{else}]
                                                     <small>[{oxmultilang ident="WRAPPING"}]: [{oxmultilang ident="NONE"}]</small>
                                                 [{/if}]
                                             [{else}]
                                                 [{assign var="oWrap" value=$basketitem->getWrapping()}]
                                                 [{if $editable}]
-                                                    <small>[{oxmultilang ident="WRAPPING"}]:</small> <a class="btn btn-outline-dark btn-sm" href="#" title="[{oxmultilang ident="ADD"}]" data-toggle="modal" data-target="#giftoptions"><i class="fas fa-pencil-alt"></i> [{$oWrap->oxwrapping__oxname->value}]</a>
+                                                    <small>[{oxmultilang ident="WRAPPING"}]:</small> <a class="btn btn-outline-dark btn-sm" href="#" title="[{oxmultilang ident="ADD"}]" data-bs-toggle="modal" data-bs-target="#giftoptions"><i class="fas fa-pencil-alt"></i> [{$oWrap->oxwrapping__oxname->value}]</a>
                                                 [{else}]
                                                     <small>[{oxmultilang ident="WRAPPING"}]: [{$oWrap->oxwrapping__oxname->value}]</small>
                                                 [{/if}]
@@ -167,7 +167,7 @@
                                 <a href="#" class="toggle-actions">
 
                                 </a>
-                                <button class="btn btn-outline-dark btn-sm d-md-none" type="button" data-toggle="collapse" data-target="#basketItem-[{$smarty.foreach.basketContents.iteration}]" aria-expanded="false" aria-controls="multiCollapseExample2">
+                                <button class="btn btn-outline-dark btn-sm d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#basketItem-[{$smarty.foreach.basketContents.iteration}]" aria-expanded="false" aria-controls="multiCollapseExample2">
                                     <i class="fa fa-chevron-down"></i>
                                 </button>
                             </div>

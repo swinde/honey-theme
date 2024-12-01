@@ -33,7 +33,7 @@
         <div class="form-group[{if $aErrors.oxuser__oxpassword}] oxInValid[{/if}]">
             <label class="control-label col-lg-3" for="passwordNewConfirm">[{oxmultilang ident="CONFIRM_PASSWORD"}]</label>
             <div class="col-lg-5">
-                <input type="password" id="passwordNewConfirm" name="password_new_confirm" class="js-oxValidate js-oxValidate_notEmpty js-oxValidate_length js-oxValidate_match form-control" required="" data-validation-matches-match="password_new" data-validation-matches-message="[{oxmultilang ident="ERROR_MESSAGE_PASSWORD_DO_NOT_MATCH"}]" autocomplete="new-password">
+                <input type="password" id="passwordNewConfirm" name="password_new_confirm" class="js-oxValidate js-oxValidate_notEmpty js-oxValidate_length js-oxValidate_match form-control" required="" data-bs-validation-matches-match="password_new" data-bs-validation-matches-message="[{oxmultilang ident="ERROR_MESSAGE_PASSWORD_DO_NOT_MATCH"}]" autocomplete="new-password">
                 <div class="help-block"></div>
                 [{include file="message/inputvalidation.tpl" aErrors=$aErrors.oxuser__oxpassword}]
             </div>

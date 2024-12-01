@@ -8,7 +8,7 @@
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
     xmlns:gr="http://purl.org/goodrelations/v1#"
     xmlns:foaf="http://xmlns.com/foaf/0.1/"
-    xmlns:v="http://rdf.data-vocabulary.org/#"
+    xmlns:v="http://rdf.data-bs-vocabulary.org/#"
     xml:base="[{$sRDFaUrl}]"
     typeof="gr:Offering" about="[{$sRDFaUrl}]#offeringdata">
     <div rel="foaf:page" resource="[{$sRDFaUrl}]"></div>

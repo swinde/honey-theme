@@ -59,7 +59,7 @@
         [{block name="widget_product_listitem_infogrid_gridpicture"}]
         <div class="picture text-center">
             <a href="[{$_productLink}]" title="[{$product->oxarticles__oxtitle->value}] [{$product->oxarticles__oxvarselect->value}]">
-                <img src="[{$oViewConf->getImageUrl('spinner.gif')}]" data-src="[{$product->getThumbnailUrl()}]" alt="[{$product->oxarticles__oxtitle->value}] [{$product->oxarticles__oxvarselect->value}]" class="img-fluid">
+                <img src="[{$oViewConf->getImageUrl('spinner.gif')}]" data-bs-src="[{$product->getThumbnailUrl()}]" alt="[{$product->oxarticles__oxtitle->value}] [{$product->oxarticles__oxvarselect->value}]" class="img-fluid">
             </a>
         </div>
         [{/block}]
@@ -130,7 +130,7 @@
                     <div class="btn-group">
                         [{if $blShowToBasket}]
                             [{oxhasrights ident="TOBASKET"}]
-                                <button type="submit" class="btn btn-outline-dark hasTooltip" aria-label="[{oxmultilang ident="TO_CART"}]" data-placement="bottom" title="[{oxmultilang ident="TO_CART"}]" data-container="body">
+                                <button type="submit" class="btn btn-outline-dark hasTooltip" aria-label="[{oxmultilang ident="TO_CART"}]" data-bs-placement="bottom" title="[{oxmultilang ident="TO_CART"}]" data-bs-container="body">
                                     <i class="fa fa-shopping-cart"></i>
                                 </button>
                             [{/oxhasrights}]

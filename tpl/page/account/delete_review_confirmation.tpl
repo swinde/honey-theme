@@ -8,7 +8,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     [{block name="delete_review_confirmation_modal_header"}]
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
                         <span class="h4 modal-title">[{oxmultilang ident="DD_DELETE_REVIEW_CONFIRMATION_QUESTION"}]</span>
                     [{/block}]
                 </div>
@@ -34,7 +34,7 @@
                                                 <button type="submit" class="btn btn-danger">
                                                     [{oxmultilang ident="DD_DELETE"}]
                                                 </button>
-                                                <button type="button" class="btn btn-outline-dark" data-dismiss="modal">
+                                                <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">
                                                     [{oxmultilang ident="CANCEL"}]
                                                 </button>
                                             </div>

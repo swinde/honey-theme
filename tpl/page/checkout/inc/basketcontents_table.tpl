@@ -49,7 +49,7 @@
                                 [{* product image *}]
                                 <div class="float-left basketImage cart_item-img">
                                     [{if $editable}]<a href="[{$basketitem->getLink()}]">[{/if}]
-                                        <img src="[{$oViewConf->getImageUrl('spinner.gif')}]" data-src="[{$basketitem->getIconUrl()}]" alt="[{$basketitem->getTitle()|strip_tags}]">
+                                        <img src="[{$oViewConf->getImageUrl('spinner.gif')}]" data-bs-src="[{$basketitem->getIconUrl()}]" alt="[{$basketitem->getTitle()|strip_tags}]">
                                         [{if $editable}]</a>[{/if}]
                                 </div>
                             [{/block}]
@@ -148,14 +148,14 @@
                             <td align="center">
                                 [{if !$basketitem->getWrappingId()}]
                                     [{if $editable}]
-                                        <a href="#" class="btn btn-outline-dark btn-sm" title="[{oxmultilang ident="ADD"}]" data-toggle="modal" data-target="#giftoptions">[{oxmultilang ident="ADD"}]</a>
+                                        <a href="#" class="btn btn-outline-dark btn-sm" title="[{oxmultilang ident="ADD"}]" data-bs-toggle="modal" data-bs-target="#giftoptions">[{oxmultilang ident="ADD"}]</a>
                                     [{else}]
                                         [{oxmultilang ident="NONE"}]
                                     [{/if}]
                                 [{else}]
                                     [{assign var="oWrap" value=$basketitem->getWrapping()}]
                                     [{if $editable}]
-                                        <a class="btn btn-outline-dark btn-sm" href="#" title="[{oxmultilang ident="ADD"}]" data-toggle="modal" data-target="#giftoptions"><i class="fas fa-pencil-alt"></i> [{$oWrap->oxwrapping__oxname->value}]</a>
+                                        <a class="btn btn-outline-dark btn-sm" href="#" title="[{oxmultilang ident="ADD"}]" data-bs-toggle="modal" data-bs-target="#giftoptions"><i class="fas fa-pencil-alt"></i> [{$oWrap->oxwrapping__oxname->value}]</a>
                                     [{else}]
                                         [{$oWrap->oxwrapping__oxname->value}]
                                     [{/if}]

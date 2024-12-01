@@ -20,7 +20,7 @@
                         [{foreach from=$attributes item=oFilterAttr key=sAttrID name=attr}]
                             [{assign var="sActiveValue" value=$oFilterAttr->getActiveValue()}]
                             <div class="btn-group">
-                                <button type="button" class="btn btn-outline-dark btn-sm dropdown-toggle" data-toggle="dropdown">
+                                <button type="button" class="btn btn-outline-dark btn-sm dropdown-toggle" data-bs-toggle="dropdown">
                                     <strong>[{$oFilterAttr->getTitle()}]:</strong>
                                     [{if $sActiveValue}]
                                     [{$sActiveValue}]
@@ -32,11 +32,11 @@
                                 <input type="hidden" name="attrfilter[[{$sAttrID}]]" value="[{$sActiveValue}]">
                                 <ul class="dropdown-menu" role="menu">
                                     [{if $sActiveValue}]
-                                    <li><a data-selection-id="" href="#">[{oxmultilang ident="PLEASE_CHOOSE"}]</a></li>
+                                    <li><a data-bs-selection-id="" href="#">[{oxmultilang ident="PLEASE_CHOOSE"}]</a></li>
                                     [{/if}]
                                     [{foreach from=$oFilterAttr->getValues() item=sValue}]
                                     <li class="filter-item">
-                                        <a data-selection-id="[{$sValue}]" href="#" class="filter-link[{if $sActiveValue == $sValue}] selected[{/if}]" >[{$sValue}]</a>
+                                        <a data-bs-selection-id="[{$sValue}]" href="#" class="filter-link[{if $sActiveValue == $sValue}] selected[{/if}]" >[{$sValue}]</a>
                                     </li>
                                     [{/foreach}]
                                 </ul>

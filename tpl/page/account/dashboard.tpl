@@ -127,8 +127,8 @@
                 [{if $oView->isUserAllowedToDeleteOwnAccount()}]
                 <button
                         class="btn btn-danger"
-                        data-toggle="modal"
-                        data-target="#delete_my_account_confirmation"
+                        data-bs-toggle="modal"
+                        data-bs-target="#delete_my_account_confirmation"
                 >
                     <i class="fa fa-trash"></i>
                     [{oxmultilang ident="DD_DELETE_MY_ACCOUNT"}]
