@@ -82,7 +82,6 @@ $(function () {
                 $oToTop.toggleClass('show', $this.scrollTop() >= 300);
             }
         ).trigger('scroll');
-
         // Search Toggle
         $('.search-toggle').click(function (e) {
                 e.preventDefault();

@@ -1,3 +1,5 @@
+const sass = require('dart-sass');
+
 module.exports = function (grunt) {
 
     'use strict';
@@ -13,9 +15,9 @@ module.exports = function (grunt) {
         project: {
             theme: 'honey',
             dev: './',
-            out: './../../../out/',
+            out: './out/',
             tmp: './../../../tmp/',
-            modules: './../../../modules/',
+            modules: './../../../modules/'
         },
         /**
          * Clean tmp folders
@@ -30,99 +32,154 @@ module.exports = function (grunt) {
          * Sass (compile & minify)
          */
         sass: {
-            dist: {
-                options: {
-                    update: true,
-                    style: 'compressed' /* compressed */
-                },
+            options: {
+                implementation: sass,
+                sourceMap: false
+            },
+            compile: {
                 files: {
-                    '<%= project.out %><%= project.theme %>/src/css/styles.css': [
+                    '<%= project.out %><%= project.theme %>/src/css/styles.min.css': [
                         '<%= project.dev %>/build/scss/style.scss'
+                    ],
+
+                    '<%= project.out %><%= project.theme %>/src/css/promoslider.min.css': [
+                        '<%= project.dev %>/build/scss/promoslider.scss'
                     ]
                 }
             }
         },
         cssmin: {
             options: {
-                mergeIntoShorthands: false,
-                roundingPrecision: -1
+                level: {
+                    2: {
+                        mergeAdjacentRules: true, // controls adjacent rules merging; defaults to true
+                        mergeIntoShorthands: true, // controls merging properties into shorthands; defaults to true
+                        mergeMedia: true, // controls `@media` merging; defaults to true
+                        mergeNonAdjacentRules: true, // controls non-adjacent rule merging; defaults to true
+                        mergeSemantically: false, // controls semantic merging; defaults to false
+                        overrideProperties: true, // controls property overriding based on understandability; defaults to true
+                        removeEmpty: true, // controls removing empty rules and nested blocks; defaults to `true`
+                        reduceNonAdjacentRules: true, // controls non-adjacent rule reducing; defaults to true
+                        removeDuplicateFontRules: true, // controls duplicate `@font-face` removing; defaults to true
+                        removeDuplicateMediaBlocks: true, // controls duplicate `@media` removing; defaults to true
+                        removeDuplicateRules: true, // controls duplicate rules removing; defaults to true
+                        removeUnusedAtRules: false, // controls unused at rule removing; defaults to false (available since 4.1.0)
+                        restructureRules: false, // controls rule restructuring; defaults to false
+                    }
+                }
             },
             target: {
                 files: {
-                    '<%= project.out %><%= project.theme %>/src/css/styles.min.css': ['<%= project.out %><%= project.theme %>/src/css/styles.css']
+                    '<%= project.out %><%= project.theme %>/src/css/styles.min.css': ['<%= project.out %><%= project.theme %>/src/css/styles.min.css']
                 }
             }
         },
-        postcss: {
-            options: {
-                processors: [
-                    require('autoprefixer')({browsers: ['last 2 versions', 'ie 11']})
-                ]
-            },
-            dist: {
-                src: '<%= project.out %><%= project.theme %>/src/css/styles.css'
-            }
-        },
-        uglify: {
-            options: {
-                sourceMap: true
-            },
-            my_target: {
+        concat: {
+            js: {
+                options: {
+                    separator: ';\n',
+                    sourcemap: false
+                },
                 files: {
-                    '<%= project.out %><%= project.theme %>/src/js/script.min.js': [
-                        '<%= project.dev %>node_modules/jquery/dist/jquery.min.js',
-                        '<%= project.dev %>build/js/jquery/patch.js',
-                        '<%= project.dev %>build/vendor/jquery-ui/js/jquery-ui.js',
-                        '<%= project.dev %>node_modules/popper.js/dist/umd/popper.min.js',
-                        '<%= project.dev %>node_modules/bootstrap/dist/js/bootstrap.bundle.js',
-                        '<%= project.dev %>build/vendor/jquery-unveil/js/jquery.unveil.js',
-                        '<%= project.dev %>build/vendor/jquery-flexslider2/js/jquery.flexslider.js',
-                        '<%= project.dev %>build/vendor/jquery-bootstrap-validation/js/jqBootstrapValidation.js',
-                        '<%= project.dev %>build/js/main.js',
-                        '<%= project.dev %>build/js/pages/compare.js',
-                        '<%= project.dev %>build/js/pages/details.js',
-                        '<%= project.dev %>build/js/pages/review.js',
-                        '<%= project.dev %>build/js/pages/start.js'
+                    '<%= project.out %><%= project.theme %>/src/js/scripts.min.js': [
+                        '<%= project.dev %>node_modules/js-cookie/dist/js.cookie.js',
+                        '<%= project.dev %>build/js/widgets/cookieNote.js',
+                        '<%= project.dev %>build/js/main.js'
+                    ],
+                    '<%= project.out %><%= project.theme %>/src/js/variants.min.js': [
+                        '<%= project.dev %>build/js/pages/variants.js'
+                    ],
+                    '<%= project.out %><%= project.theme %>/src/js/private_sales.min.js': [
+                        '<%= project.dev %>build/js/form/private_sales.js'
+                    ],
+                    '<%= project.out %><%= project.theme %>/src/js/wrapping.min.js': [
+                        '<%= project.dev %>build/js/pages/checkout/basket/wrapping.js'
+                    ],
+                    '<%= project.out %><%= project.theme %>/src/js/movetonoticelist.min.js': [
+                        '<%= project.dev %>build/js/pages/checkout/basket/movetonoticelist.js'
+                    ],
+                    '<%= project.out %><%= project.theme %>/src/js/agb.min.js': [
+                        '<%= project.dev %>build/js/pages/checkout/order/agb.js'
+                    ],
+                    '<%= project.out %><%= project.theme %>/src/js/payment.min.js': [
+                        '<%= project.dev %>build/js/pages/checkout/payment/payment.js'
+                    ],
+                    '<%= project.out %><%= project.theme %>/src/js/listremovebutton.min.js': [
+                        '<%= project.dev %>build/js/pages/myaccount/listremovebutton.js'
+                    ],
+                    '<%= project.out %><%= project.theme %>/src/js/changeaddress.min.js': [
+                        '<%= project.dev %>build/js/form/changeaddress.js'
+                    ],
+                    '<%= project.out %><%= project.theme %>/src/js/changeamount.min.js': [
+                        '<%= project.dev %>build/js/pages/checkout/basket/changeamount.js'
+                    ],
+                    '<%= project.out %><%= project.theme %>/src/js/widgets/oxcountrystateselect.min.js': [
+                        '<%= project.dev %>build/js/widgets/oxcountrystateselect.js'
+                    ],
+                    '<%= project.out %><%= project.theme %>/src/js/pages/details/magnifierlens.min.js': [
+                        '<%= project.dev %>build/js/pages/details/magnifierlens.js'
+                    ],
+                    '<%= project.out %><%= project.theme %>/src/js/pages/details/hoverzoom.min.js': [
+                        '<%= project.dev %>build/js/pages/details/hoverzoom.js'
+                    ],
+                    '<%= project.out %><%= project.theme %>/src/js/pages/details/modalzoom.min.js': [
+                        '<%= project.dev %>build/js/pages/details/modalzoom.js'
                     ]
                 }
             }
         },
-        combine_mq: {
+        uglify: {
+            options: {
+                mangle: false
+            },
+            my_target: {
+                files: {
+                    '<%= project.out %><%= project.theme %>/src/js/scripts.min.js': ['<%= project.out %><%= project.theme %>/src/js/scripts.min.js'],
+                    '<%= project.out %><%= project.theme %>/src/js/variants.min.js': ['<%= project.out %><%= project.theme %>/src/js/variants.min.js'],
+                    '<%= project.out %><%= project.theme %>/src/js/wrapping.min.js': ['<%= project.out %><%= project.theme %>/src/js/wrapping.min.js'],
+                    '<%= project.out %><%= project.theme %>/src/js/movetonoticelist.min.js': ['<%= project.out %><%= project.theme %>/src/js/movetonoticelist.min.js'],
+                    '<%= project.out %><%= project.theme %>/src/js/agb.min.js': ['<%= project.out %><%= project.theme %>/src/js/agb.min.js'],
+                    '<%= project.out %><%= project.theme %>/src/js/payment.min.js': ['<%= project.out %><%= project.theme %>/src/js/payment.min.js'],
+                    '<%= project.out %><%= project.theme %>/src/js/listremovebutton.min.js': ['<%= project.out %><%= project.theme %>/src/js/listremovebutton.min.js'],
+                    '<%= project.out %><%= project.theme %>/src/js/changeaddress.min.js': ['<%= project.out %><%= project.theme %>/src/js/changeaddress.min.js'],
+                    '<%= project.out %><%= project.theme %>/src/js/changeamount.min.js': ['<%= project.out %><%= project.theme %>/src/js/changeamount.min.js'],
+                    '<%= project.out %><%= project.theme %>/src/js/widgets/oxcountrystateselect.min.js': ['<%= project.out %><%= project.theme %>/src/js/widgets/oxcountrystateselect.min.js'],
+                    '<%= project.out %><%= project.theme %>/src/js/pages/details/magnifierlens.min.js': ['<%= project.out %><%= project.theme %>/src/js/pages/details/magnifierlens.min.js'],
+                    '<%= project.out %><%= project.theme %>/src/js/pages/details/hoverzoom.min.js': ['<%= project.out %><%= project.theme %>/src/js/pages/details/hoverzoom.min.js'],
+                    '<%= project.out %><%= project.theme %>/src/js/pages/details/modalzoom.min.js': ['<%= project.out %><%= project.theme %>/src/js/pages/details/modalzoom.min.js']
+                }
+            }
+        },
+        cmq: {
             new_filename: {
                 options: {
                     beautify: false,
                     expand: false
                 },
-                src: '<%= project.out %><%= project.theme %>/src/css/styles.css',
-                dest: '<%= project.out %><%= project.theme %>/src/css/styles.css'
+                src:  '<%= project.out %><%= project.theme %>/src/css/styles.min.css',
+                dest: '<%= project.out %><%= project.theme %>/src/css/styles.min.css'
             }
+        },
+
+        svg_symbols: {
+            options: {
+                precision: 3
+            },
+            your_target: {
+                files: {
+                    '<%= project.dev %>/tpl/icons/repeating-icons.svg': ['<%= project.dev %>build/icons/*.svg'],
+                },
+            },
         },
         /**
          * Watch files for changes
          */
         watch: {
-            configFiles: {
-                files: ['Gruntfile.js', 'config/*.js'],
-                options: {
-                    reload: true
-                }
-            },
-            clean: {
-                files: [
-                    '<%= project.dev %>de/**/*.*','<%= project.dev %>en/**/*.*','<%= project.modules %>**/*.tpl'],
-                tasks:
-                    ['clean'],
-                options:
-                    {
-                        spawn: false,
-                        livereload: true
-                    }
-            },
             sass: {
                 files: [
-                    '<%= project.dev %>build/scss/**/*.scss','<%= project.dev %>tpl/**/*.tpl'],
+                    '<%= project.dev %>build/scss/**/*.scss','<%= project.dev %>tpl/**/*.html.twig'],
                 tasks:
-                    ['sass', 'postcss', 'combine_mq', 'cssmin', 'clean'],
+                    ['sass', 'cssmin', 'clean'],
                 options:
                     {
                         spawn: false,
@@ -132,9 +189,11 @@ module.exports = function (grunt) {
             js: {
                 files: [
                     '<%= project.dev %>build/js/*.js',
+                    '<%= project.dev %>build/js/**/*.js',
+                    '<%= project.out %><%= project.theme %>/src/js/*.js'
                 ],
                 tasks:
-                    ['uglify'],
+                    ['concat:js', 'uglify'],
                 options:
                     {
                         spawn: false,
@@ -147,19 +206,21 @@ module.exports = function (grunt) {
                 files: [
                     {
                         expand: true,
-                        src: '*',
-                        cwd: '<%= project.dev %>/build/vendor/fontawesome-free-webfonts/webfonts/',
+                        src: [
+                            '<%= project.dev %>node_modules/@fontsource/oswald/files/oswald-latin-600-normal.woff*',
+                            '<%= project.dev %>node_modules/roboto-fontface/fonts/roboto/Roboto-Regular.woff*'
+                        ],
+                        flatten: true,
                         dest: '<%= project.out %><%= project.theme %>/src/fonts/'
+                    },
+                    {
+                        expand: false,
+                        src: 'bootstrap.bundle.min.js',
+                        cwd: '<%= project.dev %>build/js/',
+                        dest: '<%= project.out %><%= project.theme %>src/js/'
                     }
                 ]
             },
-            vendor: {
-                files: {
-                    "<%= project.out %><%= project.theme %>/src/js/libs/jquery.cookie.min.js":         "build/vendor/jquery-cookie/js/jquery.cookie.js",
-                    "<%= project.out %><%= project.theme %>/src/js/libs/photoswipe.min.js":            "build/vendor/photoswipe/js/photoswipe.js",
-                    "<%= project.out %><%= project.theme %>/src/js/libs/photoswipe-ui-default.min.js": "build/vendor/photoswipe/js/photoswipe-ui-default.js"
-                }
-            }
         }
     });
 
@@ -167,17 +228,17 @@ module.exports = function (grunt) {
      * Load Grunt plugins
      */
     require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
-    require('time-grunt')(grunt);
 
     /**
      * Default task
      * Run `grunt` on the command line
      */
     grunt.registerTask('default', [
+        'copy',
+        'svg_symbols',
         'sass',
-        'postcss',
-        'combine_mq',
         'cssmin',
+        'concat:js',
         'uglify',
         'clean',
         'watch'
